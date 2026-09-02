@@ -62,9 +62,9 @@ First-time install lives in `install.md` (clone, deps, ffmpeg, skill registratio
 - `ELEVENLABS_API_KEY` resolves — either in the environment or in `.env` at the video-use repo root. If missing, ask the user to paste one and write it to `.env` (never to the user's `<videos_dir>`).
 - `ffmpeg` + `ffprobe` on PATH.
 - Python deps installed (`uv sync` or `pip install -e .` inside the repo).
-- Node.js + npm available if the session needs HyperFrames or Remotion slots. HyperFrames currently requires Node.js 22+.
-- `yt-dlp`, HyperFrames, Remotion, Manim installed only on first use.
-- First-use animation setup happens inside the slot directory, never at the video-use repo root. HyperFrames can be invoked with `npx --yes hyperframes ...`; Remotion can be scaffolded with `npx create-video@latest` or installed as a project-local dependency before using its `remotion render` command.
+- Node.js + npm available if the session needs HyperFrames, Remotion, or Motion Canvas slots. HyperFrames currently requires Node.js 22+.
+- `yt-dlp`, HyperFrames, Remotion, Motion Canvas, Manim installed only on first use.
+- First-use animation setup happens inside the slot directory, never at the video-use repo root. HyperFrames can be invoked with `npx --yes hyperframes ...`; Remotion can be scaffolded with `npx create-video@latest` or installed as a project-local dependency before using its `remotion render` command; Motion Canvas can be scaffolded with `npm init @motion-canvas@latest` (answer the prompts, or pipe defaults), then `npm install && npx vite build` to render an image sequence, muxed to video via the project's ffmpeg helper.
 - This skill vendors `skills/manim-video/`. Read its SKILL.md when building a Manim slot.
 
 Helpers (`helpers/transcribe.py`, `helpers/render.py`, etc.) live alongside this SKILL.md. Resolve their paths relative to the directory containing this file — the skill is typically symlinked at `~/.claude/skills/video-use/` or `~/.codex/skills/video-use/`.
